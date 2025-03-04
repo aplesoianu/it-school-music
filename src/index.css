@@ -1,13 +1,31 @@
+:root {
+  /* Culori text */
+  --text-primary: #3a3a3a;
+  --text-secondary: #616161;
+  --text-accent: #8758ff;
+
+  /* Culori fundal */
+  --bg-primary:  #f7f4f9;
+  --bg-secondary: #e8f5e9;
+  --bg-accent: #fde2e4;
+
+  /* Culori butoane si UI */
+  --btn-primary:  #ffb4a2;
+  --btn-hover: #ff8fa3;
+  --bton-text: #ffffff;
+  --border-light: #dadada;
+  --shadow-soft: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
