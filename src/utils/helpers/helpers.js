@@ -8,7 +8,6 @@ export function parseArtistsData(artistsResponse) {
     artistsResponse.artists.artist &&
     artistsResponse.artists.artist.length > 0
   ) {
-    console.log("artists there");
     return artistsResponse.artists.artist;
   }
 
@@ -16,7 +15,6 @@ export function parseArtistsData(artistsResponse) {
 }
 
 export async function enrichArtistInfo(artistData){
-  console.log(artistData.mbid)
   const artistInfo = await getArtistInfo(artistData.mbid)
   return artistInfo
 }

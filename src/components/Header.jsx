@@ -7,15 +7,17 @@ export default function Header() {
     <header className="Header">
       <nav className="nav bg-primary w-100">
         <Container className="d-flex justify-content-between align-items-center w-100">
-          <img src="/img/vinyl_logo.png" alt="Vinyl black white" />
+          <Link to="/">
+            <img src="/img/vinyl_logo.png" alt="Vinyl black white" />
+          </Link>
           <ul className="custom-dropdown-menu d-flex">
             <li>
-              <Link className="p-3 text-uppercase text-light" to="/topArtists">
+              <Link className="p-3 text-uppercase text-light" to="/top-artists">
                 Top Artists
               </Link>
             </li>
             <li>
-              <Link className="p-3 text-uppercase text-light" to="/topGenres">
+              <Link className="p-3 text-uppercase text-light" to="/top-genres">
                 Top Genres
               </Link>
             </li>

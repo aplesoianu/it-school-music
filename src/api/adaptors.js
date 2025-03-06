@@ -44,14 +44,13 @@ export async function getSpotifyArtistPicture(artistName, accessToken) {
     const artist = searchData.artists.items[0];
     if (artist.images.length > 0) {
       const imageUrl = artist.images[0].url;
-      console.log(`Image URL: ${imageUrl}`);
       return imageUrl;
     } else {
-      console.log("No image available for this artist.");
+      console.log("Nu exista imagini.");
       return null;
     }
   } else {
-    console.log("Artist not found.");
+    console.log("Artistul nu a fost gasit.");
     return null;
   }
 }
@@ -83,5 +82,16 @@ export async function getArtistInfo(artistId) {
     return enrichedArtist;
   } catch (error) {
     throw new Error("Nu s-au gasit informatii");
+  }
+}
+
+export async function getAlbumInfo(artistId, albumName) {
+  const endpoint = getEndpoint("albumInfo", artistId, albumName);
+  console.log(endpoint);
+  try {
+    const response = await axios.get(endpoint);
+    return response.data;
+  } catch (error) {
+    throw new Error("Eroare la cautarea albumului");
   }
 }

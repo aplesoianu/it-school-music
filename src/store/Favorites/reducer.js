@@ -2,7 +2,7 @@ export const initialState = {
   artists: [],
 };
 
-export function artistsReducer(state, action) {
+export function favoritesReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_FAVORITES": {
       const isInList = state.artists.find(
