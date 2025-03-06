@@ -1,0 +1,31 @@
+.Header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 100px;
+}
+
+.Header .nav img {
+  width: auto;
+  height: 90px;
+}
+
+.Header .menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.Header .custom-dropdown-menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header .nav a:hover {
+  color: var(--text-secondary);
+}

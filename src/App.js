@@ -1,25 +1,49 @@
-import { useEffect } from "react";
-import { getSpotifyToken } from "./api/endpoints";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import { useReducer } from "react";
+import { ArtistsContext } from "./store/Artists/context.js";
+import { initialState, artistsReducer } from "./store/Artists/reducer.js";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <></>,
+  },
+  {
+    path: "/favorites",
+    element: <></>,
+  },
+  {
+    path: "/top-artists",
+    element: <></>,
+  },
+  {
+    path: "/top-artists/:album",
+    element: <></>,
+  },
+  {
+    path: "/top-genres",
+    element: <></>,
+  },
+]);
 
 function App() {
+  const [artistsState, artistsDispatch] = useReducer(
+    artistsReducer,
+    initialState
+  );
 
-  useEffect(()=>{
 
-    const fetchToken = async ()=>{
-      try {
-        const token = await getSpotifyToken();
-        console.log('Spotify Token:', token);
-      } catch (error) {
-        console.error('Error fetching Spotify token:', error);
-      }
-
-    }
-
-    fetchToken()
-  }, [])
+  const artistsContextValue = { artistsState, artistsDispatch };
 
   return (
-    <div>Test</div>
+    <div className="App">
+      <ArtistsContext.Provider value={artistsContextValue}>
+        <RouterProvider router={router} />
+      </ArtistsContext.Provider>
+    </div>
   );
 }
 
