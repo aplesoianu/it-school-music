@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
+import { Container, Row, Col, Card, ListGroup, Button } from "react-bootstrap";
 import { TopGenresContext } from "../store/Genres/context";
 import Layout from "../components/Layout";
-import { Container, Row, Col, Card, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./TopGenres.css";
 
 export default function TopGenres() {
-  const { topGenres, loading, error } = useContext(TopGenresContext);
-
-  if (loading) return <p>Loading genres...</p>;
-  if (error) return <p>Error loading genres.</p>;
+  const { topGenres } = useContext(TopGenresContext);
 
   return (
     <Layout>
@@ -19,7 +17,7 @@ export default function TopGenres() {
             <Col md={4} sm={6} xs={12} key={index} className="mb-4">
               <Card className="h-100 shadow-sm">
                 <Card.Body>
-                  <Card.Title>{genre.name}</Card.Title>
+                  <Card.Title className="genre-title">{genre.name}</Card.Title>
                   <Card.Text>
                     {genre.info && genre.info.wiki && genre.info.wiki.summary
                       ? genre.info.wiki.summary.split("<a")[0]
@@ -36,9 +34,15 @@ export default function TopGenres() {
                       <ListGroup variant="flush">
                         {genre.topArtists.slice(0, 3).map((artist, idx) => (
                           <ListGroup.Item key={idx}>
-                            <Link to={`/top-artists/${artist.name}`}>
+                            <Button
+                              as={Link}
+                              to={`/top-artists/${artist.name}`}
+                              variant="outline-primary"
+                              className="artist-button"
+                              block="true"
+                            >
                               {artist.name}
-                            </Link>
+                            </Button>
                           </ListGroup.Item>
                         ))}
                       </ListGroup>
@@ -46,11 +50,7 @@ export default function TopGenres() {
                   )}
                 </Card.Body>
                 <Card.Footer>
-                  <a
-                    href={genre.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={genre.url} target="_blank" rel="noopener noreferrer">
                     View on Last.fm
                   </a>
                 </Card.Footer>

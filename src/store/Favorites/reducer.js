@@ -5,28 +5,27 @@ export const initialState = {
 export function favoritesReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_FAVORITES": {
-      const isInList = state.artists.find(
-        (artist) => artist.id === action.payload.id
-      );
-      if (isInList) {
+      const newArtist = action.payload;
+      const alreadyAdded = state.artists.some((artist) => {
+        return artist.artist.mbid === newArtist.artist.mbid;
+      });
+      if (alreadyAdded) {
         return state;
       }
       return {
-        ...state, 
-        artists: [action.payload, ...state.artists],
+        ...state,
+        artists: [newArtist, ...state.artists],
       };
     }
 
     case "REMOVE_FROM_FAVORITES": {
-      const filteredArtists = state.artists.filter(
-        (artist) => artist.id !== action.payload
-      );
       return {
         ...state,
-        artists: filteredArtists,
+        artists: state.artists.filter((artist) => {
+          return artist.artist.mbid !== action.payload;
+        }),
       };
     }
-
     default:
       return state;
   }

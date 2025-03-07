@@ -7,12 +7,9 @@ export function useFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!url) return; 
+    if (!url) return;
 
     const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-
       try {
         const response = await axios.get(url);
         setData(response.data);

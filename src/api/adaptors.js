@@ -19,7 +19,7 @@ export async function getSpotifyToken() {
   return axios(authOptions)
     .then((response) => response.data.access_token)
     .catch((error) => {
-      throw new Error("Failed to retrieve access token");
+      throw new Error("Nu s-a putut accesa serverul");
     });
 }
 
@@ -46,11 +46,9 @@ export async function getSpotifyArtistPicture(artistName, accessToken) {
       const imageUrl = artist.images[0].url;
       return imageUrl;
     } else {
-      console.log("Nu exista imagini.");
       return null;
     }
   } else {
-    console.log("Artistul nu a fost gasit.");
     return null;
   }
 }
@@ -87,7 +85,6 @@ export async function getArtistInfo(artistId) {
 
 export async function getAlbumInfo(artistId, albumName) {
   const endpoint = getEndpoint("albumInfo", artistId, albumName);
-  console.log(endpoint);
   try {
     const response = await axios.get(endpoint);
     return response.data;

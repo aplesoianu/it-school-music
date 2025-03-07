@@ -5,31 +5,15 @@ import { TopArtistsContext } from "../store/TopArtists/context";
 import Layout from "../components/Layout";
 
 export default function Artist() {
-  // The route param "artist" will contain the encoded name.
-  const { artist: encodedArtistName } = useParams();
-  const { artists } = useContext(TopArtistsContext);
+  const { artist: encodedArtistName } = useParams(); // din ruta
+  const { artists } = useContext(TopArtistsContext); // din context store
 
-  console.log({ artists });
-  console.log(encodedArtistName);
-  // Find the matching artist in the stored top artists by comparing encodedName.
   const artistDetails = artists.find(
     (item) => item.artist.name === encodedArtistName
   );
 
-  if (!artistDetails) {
-    return (
-      <Container className="my-5">
-        <p>Artist not found.</p>
-      </Container>
-    );
-  }
-
   const artist = artistDetails.artist;
-  const imageUrl =
-    artist.spotifyPicture ||
-    (artist.image &&
-      artist.image.find((img) => img.size === "extralarge")?.["#text"]) ||
-    "";
+  const imageUrl = artist.spotifyPicture;
   const bioSnippet =
     artist.bio && artist.bio.summary
       ? artist.bio.summary.split("<a")[0]

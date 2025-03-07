@@ -1,0 +1,13 @@
+.artist-button {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.artist-button:hover {
+  transform: scale(1.05);
+  background-color: #e9ecef;
+}
+
+.genre-title {
+  font-size: 1.75rem;
+  color: --text-primary;
+}

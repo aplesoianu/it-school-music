@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-primary">
       <Container>
         <p className="text-light text-center m-0 py-3">
-          IT School România © 2025. Toate drepturile rezervate.
+          IT School / Web Development Course / 2025
         </p>
       </Container>
     </footer>

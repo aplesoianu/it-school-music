@@ -4,6 +4,7 @@
   justify-content: space-between;
   padding: 0 20px;
   height: 100px;
+  font-size: 1.25rem
 }
 
 .Header .nav img {
@@ -28,4 +29,10 @@
 
 .Header .nav a:hover {
   color: var(--text-secondary);
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-left: 1rem;
 }
