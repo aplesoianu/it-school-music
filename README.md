@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Aplicatie pentru Cursul de Web Development de la IT School Romania (https://www.itschool.ro)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
